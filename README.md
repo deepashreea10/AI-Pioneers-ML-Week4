@@ -37,89 +37,83 @@ The project uses the **California Housing dataset** available through Scikit-lea
 
 ## ⚙️ Project Workflow
 
+Dataset Loading ↓ Data Inspection ↓ Train-Test Split ↓ Feature Scaling ↓ Linear Regression Model ↓ Model Evaluation ↓ Model Serialization using Joblib ↓ Flask Prediction API ↓ Deployment using Render ↓ Live Prediction
 
-Dataset Loading
-       ↓
-Data Inspection
-       ↓
-Train-Test Split
-       ↓
-Feature Scaling
-       ↓
-Linear Regression Model
-       ↓
-Model Evaluation
-       ↓
-Model Serialization using Joblib
-       ↓
-Flask Prediction API
-       ↓
-Deployment using Render
-       ↓
-Live Prediction
+---
 
-🤖 Machine Learning Model
+## 🤖 Machine Learning Model
 
-The project uses Linear Regression for house value prediction.
+The project uses **Linear Regression** for house value prediction.
 
 The dataset was divided into:
 
-Training data: 16,512 samples
-Testing data: 4,128 samples
-Split ratio: 80:20
-Random state: 42
+- **Training data:** 16,512 samples
+- **Testing data:** 4,128 samples
+- **Split ratio:** 80:20
+- **Random state:** 42
 
-The numerical features were standardized using StandardScaler before training the model.
+The numerical features were standardized using `StandardScaler` before training the model.
 
-📈 Model Performance
+---
+
+## 📈 Model Performance
 
 The trained Linear Regression model was evaluated using the following metrics:
 
-Metric	Value
-MAE	0.5332
-MSE	0.5559
-RMSE	0.7456
-R² Score	0.5758
+| Metric | Value |
+|---|---:|
+| MAE | 0.5332 |
+| MSE | 0.5559 |
+| RMSE | 0.7456 |
+| R² Score | 0.5758 |
 
-The model achieved an R² score of approximately 57.58%, indicating that the model explains a reasonable portion of the variation in house values.
+The model achieved an R² score of approximately **57.58%**, indicating that the model explains a reasonable portion of the variation in house values.
 
-💾 Model Serialization
+---
 
-The trained Machine Learning model and the scaler were saved using Joblib.
+## 💾 Model Serialization
 
-Files created:
+The trained Machine Learning model and the scaler were saved using **Joblib**.
 
-house_price_model.joblib
-house_price_scaler.joblib
+### Files Created
+
+- `house_price_model.joblib`
+- `house_price_scaler.joblib`
 
 Saving both the model and scaler allows the deployed application to use the same preprocessing and trained model without retraining.
 
-🌐 Flask Prediction API
+---
+
+## 🌐 Flask Prediction API
 
 A Flask API was created to provide predictions from new house data.
 
-API Endpoint
-POST /predict
+### API Endpoint
+
+`POST /predict`
 
 The API accepts the following features:
 
-MedInc
-HouseAge
-AveRooms
-AveBedrms
-Population
-AveOccup
-Latitude
-Longitude
+- `MedInc`
+- `HouseAge`
+- `AveRooms`
+- `AveBedrms`
+- `Population`
+- `AveOccup`
+- `Latitude`
+- `Longitude`
 
 The input data is scaled using the saved scaler and then passed to the saved Linear Regression model.
 
-🧪 API Testing
+---
 
-The deployed API was tested successfully using Python requests.
+## 🧪 API Testing
 
-Example input:
+The deployed API was tested successfully using Python `requests`.
 
+### Example Input
+
+```json
 {
     "MedInc": 5.0,
     "HouseAge": 20.0,
@@ -130,71 +124,103 @@ Example input:
     "Latitude": 34.0,
     "Longitude": -118.0
 }
+```
 
-Example response:
+### Example Response
 
+```json
 {
     "predicted_house_value": 2.4731
 }
+```
 
-The API returned HTTP Status Code 200, confirming that the deployed prediction endpoint was working successfully.
+The API returned **HTTP Status Code 200**, confirming that the deployed prediction endpoint was working successfully.
 
-🚀 Deployment
+---
 
-The Flask application was deployed using Render.
+## 🚀 Deployment
 
-Live Application
+The Flask application was deployed using **Render**.
 
-https://ai-pioneers-ml-week4.onrender.com
+### Live Application
+
+[https://ai-pioneers-ml-week4.onrender.com](https://ai-pioneers-ml-week4.onrender.com)
 
 The root endpoint confirms that the House Price Prediction API is running.
 
-Deployment Configuration
+### Deployment Configuration
 
-Build Command:
+**Build Command:**
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
-Start Command:
+**Start Command:**
 
-gunicorn app:app
-🛠️ Technologies Used
-Python
-Pandas
-NumPy
-Scikit-learn
-Joblib
-Flask
-Gunicorn
-Google Colab
-GitHub
-Render
-📁 Project Files
+`gunicorn app:app`
+
+---
+
+## 🛠️ Technologies Used
+
+- Python
+- Pandas
+- NumPy
+- Scikit-learn
+- Joblib
+- Flask
+- Gunicorn
+- Google Colab
+- GitHub
+- Render
+
+---
+
+## 📁 Project Files
+
+```text
 AI-Pioneers-ML-Week4/
 │
 ├── app.py
 ├── requirements.txt
 ├── house_price_model.joblib
 └── house_price_scaler.joblib
+```
 
 The complete model development process is documented in the Google Colab notebook:
 
-Week_4_House_Price_Prediction.ipynb
+`Week_4_House_Price_Prediction.ipynb`
 
-🎓 Learning Outcomes
+---
+
+## 🎓 Learning Outcomes
 
 Through this project, I learned how to:
 
-Prepare a dataset for Machine Learning.
-Split data into training and testing sets.
-Apply feature scaling using StandardScaler.
-Train a Linear Regression model.
-Evaluate a regression model using MAE, MSE, RMSE, and R².
-Serialize Machine Learning models using Joblib.
-Build a prediction API using Flask.
-Handle JSON input and prediction responses.
-Deploy a Python Flask application using Render.
-Connect a trained Machine Learning model with a live web API.
-✅ Conclusion
+- Prepare a dataset for Machine Learning.
+- Split data into training and testing sets.
+- Apply feature scaling using StandardScaler.
+- Train a Linear Regression model.
+- Evaluate a regression model using MAE, MSE, RMSE, and R².
+- Serialize Machine Learning models using Joblib.
+- Build a prediction API using Flask.
+- Handle JSON input and prediction responses.
+- Deploy a Python Flask application using Render.
+- Connect a trained Machine Learning model with a live web API.
+
+---
+
+## ✅ Conclusion
 
 This project demonstrates a complete end-to-end Machine Learning workflow, from dataset preprocessing and model training to model serialization, API development, and cloud deployment. The deployed Flask API successfully accepts house-related features and returns a predicted house value using the trained Linear Regression model.
+
+---
+
+## 🔗 Project Links
+
+**GitHub Repository:**
+
+https://github.com/deepashreea10/AI-Pioneers-ML-Week4
+
+**Live API:**
+
+[https://ai-pioneers-ml-week4.onrender.com](https://ai-pioneers-ml-week4.onrender.com)
