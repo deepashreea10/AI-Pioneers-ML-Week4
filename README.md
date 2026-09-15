@@ -223,4 +223,12 @@ https://github.com/deepashreea10/AI-Pioneers-ML-Week4
 
 **Live API:**
 
+---
+
+## 📑 Project Presentation
+
+The project presentation is included in this repository as part of the Week 4 capstone deliverables.
+
+**Presentation:** `Week_4_Presentation.pdf`
+
 [https://ai-pioneers-ml-week4.onrender.com](https://ai-pioneers-ml-week4.onrender.com)
